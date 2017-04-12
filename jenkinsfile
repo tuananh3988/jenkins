@@ -1,22 +1,17 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'ls -al /var/www/html/'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+  agent any
+  stages {
+    stage('Init') {
+      steps {
+        echo 'building...123'
+        sh '''cd /var/www/html
+ls -al'''
+      }
     }
+    stage('release') {
+      steps {
+        echo 'Start release'
+      }
+    }
+  }
 }
